@@ -1,3 +1,5 @@
+server:
+  port: 8100
 spring:
   datasource:
     url: "jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:sessions}?createDatabaseIfNotExist=true&&useSSL=false"
@@ -7,3 +9,8 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create-drop
+cine:
+  movie:
+    show-url: "${MOVIE_BASE_URL:http://localhost:8080}/movies/{id}"
+  theater:
+    show-url: "${MOVIE_THEATER_BASE_URL:http://localhost:8090}/theater/{id}"
