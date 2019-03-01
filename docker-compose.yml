@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  database:
+    image: mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    ports:
+      - 3306:3306
+    volumes:
+      - type: volume
+        source: database-volume
+        target: /var/lib/mysql
+
+
+volumes:
+  database-volume:
