@@ -1,23 +1,24 @@
 package br.com.caelum.cine.session.shared;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MovieTheater {
-    @JsonProperty("name")
-    private String theaterName;
 
-    @JsonProperty("id")
-    private Long movieTheaterId;
+    @Column(name = "theaterId")
+    private Long id;
 
-    public String getTheaterName() {
-        return theaterName;
+    @Column(name = "theaterName")
+    private String name;
+
+    public Long getId() {
+        return id;
     }
 
-    public Long getMovieTheaterId() {
-        return movieTheaterId;
+    public String getName() {
+        return name;
     }
 }

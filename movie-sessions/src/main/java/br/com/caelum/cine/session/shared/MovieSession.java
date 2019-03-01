@@ -43,4 +43,8 @@ public class MovieSession {
     public ZonedDateTime getDate() {
         return date;
     }
+
+    public ZonedDateTime getForecastOfEnd() {
+        return date.plus(movie.getDuration());
+    }
 }
