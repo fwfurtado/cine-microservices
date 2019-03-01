@@ -1,6 +1,7 @@
 package br.com.caelum.cine.movies.register;
 
 import java.time.Duration;
+import java.time.ZonedDateTime;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -12,6 +13,9 @@ class MovieDTO {
     @NotNull
     private Duration duration;
 
+    @NotNull
+    private ZonedDateTime releaseDate;
+
     public String getName() {
         return name;
     }
@@ -20,11 +24,7 @@ class MovieDTO {
         return duration;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDuration(Duration duration) {
-        this.duration = duration;
+    public ZonedDateTime getReleaseDate() {
+        return releaseDate;
     }
 }

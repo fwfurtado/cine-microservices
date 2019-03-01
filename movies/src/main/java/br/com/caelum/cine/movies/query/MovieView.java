@@ -1,5 +1,6 @@
 package br.com.caelum.cine.movies.query;
 
+import java.time.LocalDate;
 import org.springframework.beans.factory.annotation.Value;
 
 interface MovieView {
@@ -8,10 +9,13 @@ interface MovieView {
 
     String getName();
 
-    @Value("#{target.active ? 'yes': 'no'}")
-    String getActive();
+    @Value("#{target.nowPlaying ? 'yes': 'no'}")
+    String getNowPlaying();
 
     @Value("#{target.duration.toMinutes() + ' min' }")
     String getDuration();
+
+    @Value("#{target.releaseDate.toLocalDate()}")
+    LocalDate getReleaseDate();
 
 }

@@ -9,6 +9,6 @@ class MovieDTOToMovieConverter implements Converter<MovieDTO, Movie> {
 
     @Override
     public Movie convert(MovieDTO source) {
-        return new Movie(source.getName(), source.getDuration());
+        return new Movie(source.getName(), source.getDuration(), source.getReleaseDate());
     }
 }
