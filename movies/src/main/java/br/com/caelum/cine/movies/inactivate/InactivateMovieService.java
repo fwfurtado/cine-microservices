@@ -14,7 +14,7 @@ class InactivateMovieService {
     }
 
     void inactivateBy(Long id) {
-         Movie movie = repository.findBy(id).orElseThrow(() -> new MovieNotFoundException(id));
+         Movie movie = repository.findById(id).orElseThrow(() -> new MovieNotFoundException(id));
 
          movie.inactive();
     }

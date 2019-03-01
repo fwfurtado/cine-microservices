@@ -6,5 +6,5 @@ import org.springframework.data.repository.Repository;
 
 interface QueryMovieRepository extends Repository<Movie, Long> {
 
-    Optional<MovieView> findBy(Long id);
+    Optional<MovieView> findById(Long id);
 }

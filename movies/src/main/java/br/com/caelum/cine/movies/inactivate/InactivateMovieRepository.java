@@ -6,5 +6,5 @@ import org.springframework.data.repository.Repository;
 
 interface InactivateMovieRepository extends Repository<Movie, Long> {
 
-    Optional<Movie> findBy(Long id);
+    Optional<Movie> findById(Long id);
 }

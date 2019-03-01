@@ -14,7 +14,7 @@ class QueryMovieService {
 
     Optional<MovieView> findMovieBy(Long id) {
 
-        return repository.findBy(id);
+        return repository.findById(id);
 
     }
 }
