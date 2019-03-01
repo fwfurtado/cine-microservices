@@ -1,7 +1,7 @@
 package br.com.caelum.cine.movies.inactivate;
 
-import br.com.caelum.cine.domain.Movie;
 import br.com.caelum.cine.movies.MovieNotFoundException;
+import br.com.caelum.cine.movies.shared.Movie;
 import org.springframework.stereotype.Service;
 
 @Service

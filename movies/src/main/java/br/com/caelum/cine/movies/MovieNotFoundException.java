@@ -9,7 +9,7 @@ public class MovieNotFoundException extends IllegalArgumentException {
         this.id = id;
     }
 
-    public Long getId() {
+    Long getId() {
         return id;
     }
 }

@@ -1,6 +1,6 @@
 package br.com.caelum.cine.movies.inactivate;
 
-import br.com.caelum.cine.domain.Movie;
+import br.com.caelum.cine.movies.shared.Movie;
 import java.util.Optional;
 import org.springframework.data.repository.Repository;
 

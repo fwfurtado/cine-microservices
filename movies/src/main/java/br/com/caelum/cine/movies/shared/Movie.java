@@ -1,4 +1,4 @@
-package br.com.caelum.cine.domain;
+package br.com.caelum.cine.movies.shared;
 
 import java.time.Duration;
 import javax.persistence.Entity;

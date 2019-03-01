@@ -1,6 +1,6 @@
 package br.com.caelum.cine.movies.register;
 
-import br.com.caelum.cine.domain.Movie;
+import br.com.caelum.cine.movies.shared.Movie;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Service;
 
