@@ -1,7 +1,6 @@
 package br.com.caelum.cine.movies.shared;
 
 import java.time.Duration;
-import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +16,7 @@ public class Movie {
     private String name;
     private Duration duration;
     private ZonedDateTime releaseDate;
-    private boolean nowPlaying;
+    private boolean exhibition;
 
     /**
      * @deprecated frameworks only
@@ -43,15 +42,19 @@ public class Movie {
         return duration;
     }
 
-    public boolean isNowPlaying() {
-        return nowPlaying;
+    public boolean isExhibition() {
+        return exhibition;
     }
 
     public ZonedDateTime getReleaseDate() {
         return releaseDate;
     }
 
-    public void inactive() {
-        nowPlaying = false;
+    public void onExhibition() {
+        exhibition = true;
+    }
+
+    public void outExhibition() {
+        exhibition = false;
     }
 }

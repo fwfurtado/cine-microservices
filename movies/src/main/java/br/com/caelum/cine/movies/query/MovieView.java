@@ -9,8 +9,8 @@ interface MovieView {
 
     String getName();
 
-    @Value("#{target.nowPlaying ? 'yes': 'no'}")
-    String getNowPlaying();
+    @Value("#{target.exhibition ? 'yes': 'no'}")
+    String getInExhibition();
 
     @Value("#{target.duration.toMinutes() + ' min' }")
     String getDuration();
