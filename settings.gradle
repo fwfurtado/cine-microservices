@@ -5,4 +5,5 @@ pluginManagement {
 }
 rootProject.name = 'cine'
 include 'movies'
+include 'movie-theater'
 
