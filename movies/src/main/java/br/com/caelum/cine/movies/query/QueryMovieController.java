@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @MovieController
 class QueryMovieController {
@@ -19,9 +20,15 @@ class QueryMovieController {
     }
 
     @GetMapping("{id}")
-    ResponseEntity<?> show(@PathVariable Long id) {
-        Optional<MovieView> movieView = repository.findMovieViewById(id);
+    ResponseEntity<?> show(@RequestParam(required = false) boolean pretty,@PathVariable Long id) {
+        Optional<?> movieResult;
 
-        return  movieView.map(ok()::body).orElseGet(notFound()::build);
+        if (pretty) {
+            movieResult = repository.findMovieViewById(id);
+        }else {
+            movieResult = repository.findById(id);
+        }
+
+        return movieResult.map(ok()::body).orElseGet(notFound()::build);
     }
 }
