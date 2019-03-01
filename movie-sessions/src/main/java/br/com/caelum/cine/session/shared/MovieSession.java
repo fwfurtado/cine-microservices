@@ -2,6 +2,8 @@ package br.com.caelum.cine.session.shared;
 
 import java.time.ZonedDateTime;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,6 +17,9 @@ public class MovieSession {
     private Movie movie;
     private MovieTheater movieTheater;
     private ZonedDateTime date;
+
+    @Enumerated(EnumType.STRING)
+    private MovieSessionStatus status = MovieSessionStatus.OPEN;
 
     /**
      * @deprecated  frameworks eyes
@@ -46,5 +51,17 @@ public class MovieSession {
 
     public ZonedDateTime getForecastOfEnd() {
         return date.plus(movie.getDuration());
+    }
+
+    public void start() {
+        status = status.start();
+    }
+
+    public void finish() {
+        status = status.finish();
+    }
+
+    public void cancel() {
+        status = status.cancel();
     }
 }
