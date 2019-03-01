@@ -32,7 +32,7 @@ class QueryMovieTheaterController {
 
     @GetMapping("{id}")
     ResponseEntity<MovieTheaterView> show(@PathVariable Long id) {
-        return repository.findById(id).map(ok()::body).orElseGet(notFound()::build);
+        return repository.findTheaterViewById(id).map(ok()::body).orElseGet(notFound()::build);
     }
 
 }

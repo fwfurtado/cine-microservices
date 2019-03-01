@@ -7,6 +7,7 @@ import java.net.URI;
 import javax.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @MovieTheaterController
@@ -19,7 +20,7 @@ class RegisterMovieTheaterController {
     }
 
     @PostMapping
-    ResponseEntity<?> register(@Valid MovieTheaterDTO movieTheaterDTO, ServletUriComponentsBuilder uriComponentsBuilder) {
+    ResponseEntity<?> register(@Valid @RequestBody MovieTheaterDTO movieTheaterDTO, ServletUriComponentsBuilder uriComponentsBuilder) {
         Long id = service.register(movieTheaterDTO);
 
         URI uri = uriComponentsBuilder.path("/theater/{id}").buildAndExpand(id).toUri();
