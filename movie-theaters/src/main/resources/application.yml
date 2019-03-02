@@ -7,5 +7,7 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+  application:
+    name: theaters
 server:
   port: 8090

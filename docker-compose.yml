@@ -11,7 +11,24 @@ services:
       - type: volume
         source: database-volume
         target: /var/lib/mysql
-
+#  movie:
+#    image: cine/movie
+#    ports:
+#      - 8080:8080
+#    environment:
+#      DB_HOST: database
+#  session:
+#    image: cine/movie-sessions
+#    ports:
+#      - 8100:8080
+#    environment:
+#      DB_HOST: database
+#  theaters:
+#    image: cine/movie-theaters
+#    ports:
+#      - 8081:8080
+#    environment:
+#      DB_HOST: database
 
 volumes:
   database-volume:

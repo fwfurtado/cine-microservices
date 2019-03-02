@@ -3,7 +3,7 @@ ARG JAR_FILE
 
 RUN mkdir /application
 
-COPY ${BUILD_VERSION} /application/app.jar
+COPY ${JAR_FILE} /application/app.jar
 
 EXPOSE 8080
 

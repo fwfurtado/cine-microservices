@@ -11,6 +11,9 @@ repositories {
     mavenCentral()
 }
 subprojects {
+
+   def springCloudVersion = 'Greenwich.RELEASE'
+
     apply plugin: 'java'
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
@@ -41,6 +44,12 @@ subprojects {
         dockerfile rootProject.file('Dockerfile')
         dependsOn bootJar
         buildArgs([JAR_FILE: bootJar.archiveName])
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
     }
 
 }
