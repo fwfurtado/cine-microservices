@@ -8,4 +8,5 @@ include 'movies'
 include 'movie-theaters'
 include 'movie-sessions'
 include 'service-discovery'
+include 'api-gateway'
 

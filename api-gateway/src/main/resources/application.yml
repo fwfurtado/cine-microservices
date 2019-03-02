@@ -1,0 +1,20 @@
+server:
+  port: 8182
+
+eureka:
+  client:
+    register-with-eureka: false
+zuul:
+  routes:
+    movies:
+      stripPrefix: false
+      path: /movies/**
+      serviceId: movies
+    theater:
+      stripPrefix: false
+      path: /theater/**
+      serviceId: theaters
+    session:
+      stripPrefix: false
+      path: /sessions/**
+      serviceId: sessions

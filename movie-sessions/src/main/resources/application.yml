@@ -1,5 +1,5 @@
 server:
-  port: 8100
+  port: 0
 spring:
   datasource:
     url: "jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:sessions}?createDatabaseIfNotExist=true&&useSSL=false"
@@ -13,6 +13,6 @@ spring:
     name: sessions
 cine:
   movie:
-    show-url: "${MOVIE_BASE_URL:http://localhost:8080}/movies/{id}"
+    show-url: "http://MOVIES/movies/{id}"
   theater:
-    show-url: "${MOVIE_THEATER_BASE_URL:http://localhost:8090}/theater/{id}"
+    show-url: "http://THEATERS/theater/{id}"
