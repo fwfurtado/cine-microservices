@@ -2,8 +2,10 @@ package br.com.caelum.cine.session.register;
 
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
+import br.com.caelum.cine.session.ServerUnavailableException;
 import br.com.caelum.cine.session.configuration.MovieConfigurationProperties;
 import br.com.caelum.cine.session.shared.Movie;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import java.io.IOException;
 import javax.annotation.PostConstruct;
 import org.springframework.http.client.ClientHttpResponse;
@@ -27,8 +29,13 @@ class MovieRepository {
         restTemplate.setErrorHandler(new ErrorHandler());
     }
 
+    @HystrixCommand(fallbackMethod = "findByIdFallback")
     Movie findById(Long movieId) {
         return restTemplate.getForObject(movieConfiguration.getShowUrl(), Movie.class, movieId);
+    }
+
+    Movie findByIdFallback(Long movieId) {
+        throw new ServerUnavailableException("Movie service unavailable");
     }
 
     private class ErrorHandler implements ResponseErrorHandler {
