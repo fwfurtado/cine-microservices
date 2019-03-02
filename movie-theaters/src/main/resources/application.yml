@@ -9,5 +9,10 @@ spring:
       ddl-auto: update
   application:
     name: theaters
+  cloud:
+    stream:
+      bindings:
+        create-movie-theaters:
+          content-type: application/json
 server:
   port: 0

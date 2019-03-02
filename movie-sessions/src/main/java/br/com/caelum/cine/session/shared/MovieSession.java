@@ -7,6 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class MovieSession {
@@ -14,7 +15,9 @@ public class MovieSession {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne
     private Movie movie;
+    @ManyToOne
     private MovieTheater movieTheater;
     private ZonedDateTime date;
 
@@ -22,10 +25,11 @@ public class MovieSession {
     private MovieSessionStatus status = MovieSessionStatus.OPEN;
 
     /**
-     * @deprecated  frameworks eyes
+     * @deprecated frameworks eyes
      */
     @Deprecated
-    MovieSession() { }
+    MovieSession() {
+    }
 
     public MovieSession(Movie movie, MovieTheater movieTheater, ZonedDateTime date) {
         this.movie = movie;

@@ -1,18 +1,26 @@
 package br.com.caelum.cine.session.shared;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-@Embeddable
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Entity
 public class MovieTheater {
 
-    @Column(name = "theaterId")
+    @Id
     private Long id;
 
-    @Column(name = "theaterName")
     private String name;
+
+    /**
+     * @deprecated frameworks eyes
+     */
+    @Deprecated
+    MovieTheater() { }
+
+    public MovieTheater(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public Long getId() {
         return id;

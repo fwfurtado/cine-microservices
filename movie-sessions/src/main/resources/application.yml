@@ -11,6 +11,13 @@ spring:
       ddl-auto: create-drop
   application:
     name: sessions
+  cloud:
+    stream:
+      bindings:
+        create-movies:
+          content-type: application/json
+        create-movie-theaters:
+          content-type: application/json
 cine:
   movie:
     show-url: "http://MOVIES/movies/{id}"

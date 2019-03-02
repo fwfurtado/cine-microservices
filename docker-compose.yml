@@ -11,6 +11,11 @@ services:
       - type: volume
         source: database-volume
         target: /var/lib/mysql
+  rabbit:
+    image: rabbitmq:management
+    ports:
+      - 5672:5672
+      - 15672:15672
 #  movie:
 #    image: cine/movie
 #    ports:
