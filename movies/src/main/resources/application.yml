@@ -9,18 +9,16 @@ spring:
       ddl-auto: create-drop
   application:
     name: movies
-
-  rabbitmq:
-    host: localhost
-    username: guest
-    password: guest
-
   cloud:
     stream:
       bindings:
         create-movies:
           content-type: application/json
-
+  rabbitmq:
+    host: "${RABBIT_HOST:localhost}"
+    port: "${RABBIT_PORT:5672}"
+    username: "${RABBIT_USERNAME:guest}"
+    password: "${RABBIT_PASSWORD:guest}"
 
 
 server:

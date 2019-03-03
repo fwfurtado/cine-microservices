@@ -18,6 +18,11 @@ spring:
           content-type: application/json
         create-movie-theaters:
           content-type: application/json
+  rabbitmq:
+    host: "${RABBIT_HOST:localhost}"
+    port: "${RABBIT_PORT:5672}"
+    username: "${RABBIT_USERNAME:guest}"
+    password: "${RABBIT_PASSWORD:guest}"
 cine:
   movie:
     show-url: "http://MOVIES/movies/{id}"
