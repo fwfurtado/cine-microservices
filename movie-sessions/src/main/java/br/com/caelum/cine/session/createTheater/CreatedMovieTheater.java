@@ -1,24 +1,21 @@
-package br.com.caelum.cine.movies;
+package br.com.caelum.cine.session.createTheater;
 
-import java.time.Duration;
 import java.util.StringJoiner;
 
-public class CreatedMovie {
+public class CreatedMovieTheater {
 
     private Long id;
     private String name;
-    private Duration duration;
 
     /**
      * @deprecated frameworks eyes
      */
     @Deprecated
-    CreatedMovie() { }
+    CreatedMovieTheater() { }
 
-    public CreatedMovie(Long id, String name, Duration duration) {
+    public CreatedMovieTheater(Long id, String name) {
         this.id = id;
         this.name = name;
-        this.duration = duration;
     }
 
     public Long getId() {
@@ -29,16 +26,11 @@ public class CreatedMovie {
         return name;
     }
 
-    public Duration getDuration() {
-        return duration;
-    }
-
     @Override
     public String toString() {
-        return new StringJoiner(", ", CreatedMovie.class.getSimpleName() + "[", "]")
+        return new StringJoiner(", ", CreatedMovieTheater.class.getSimpleName() + "[", "]")
             .add("id=" + id)
             .add("name='" + name + "'")
-            .add("duration=" + duration)
             .toString();
     }
 }

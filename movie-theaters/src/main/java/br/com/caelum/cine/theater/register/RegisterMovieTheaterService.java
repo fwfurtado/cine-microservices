@@ -2,7 +2,6 @@ package br.com.caelum.cine.theater.register;
 
 import static br.com.caelum.cine.theater.configuration.EventBinderConfiguration.MOVIE_THEATER_CHANNEL;
 
-import br.com.caelum.cine.theater.CreatedMovieTheater;
 import br.com.caelum.cine.theater.shared.MovieTheater;
 import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.core.convert.converter.Converter;

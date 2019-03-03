@@ -1,6 +1,5 @@
 package br.com.caelum.cine.session.shared;
 
-import br.com.caelum.cine.movies.CreatedMovie;
 import java.time.Duration;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -39,7 +38,4 @@ public class Movie {
         return name;
     }
 
-    public void updateFrom(CreatedMovie event) {
-
-    }
 }

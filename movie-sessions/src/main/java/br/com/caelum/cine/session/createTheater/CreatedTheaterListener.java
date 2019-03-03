@@ -2,7 +2,6 @@ package br.com.caelum.cine.session.createTheater;
 
 import br.com.caelum.cine.session.configuration.EventBinderConfiguration;
 import br.com.caelum.cine.session.shared.MovieTheater;
-import br.com.caelum.cine.theater.CreatedMovieTheater;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;

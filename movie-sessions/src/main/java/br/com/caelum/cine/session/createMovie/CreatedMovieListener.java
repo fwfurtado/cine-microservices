@@ -1,6 +1,5 @@
 package br.com.caelum.cine.session.createMovie;
 
-import br.com.caelum.cine.movies.CreatedMovie;
 import br.com.caelum.cine.session.configuration.EventBinderConfiguration;
 import br.com.caelum.cine.session.shared.Movie;
 import org.springframework.cloud.stream.annotation.StreamListener;
