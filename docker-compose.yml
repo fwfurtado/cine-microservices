@@ -9,12 +9,18 @@ services:
       - type: volume
         source: database-volume
         target: /var/lib/mysql
+    ports:
+      - 3306:3306
   rabbit:
     image: rabbitmq:management
     ports:
       - 15672:15672
+      - 5672:5672
   service-discovery:
     image: cine/service-discovery
+    ports:
+      - 8761:8761
+    restart: on-failure
   api-gateway:
     image: cine/api-gateway
     ports:
@@ -22,7 +28,11 @@ services:
     environment:
       SERVICE_DISCOVERY_HOSTS: http://service-discovery:8761/eureka/
     depends_on:
-      - service-discovery
+      - movies
+      - sessions
+      - theaters
+      - unavailable
+    restart: on-failure
   movies:
     image: cine/movies
     environment:
@@ -32,6 +42,7 @@ services:
     depends_on:
       - database
       - service-discovery
+    restart: on-failure
   sessions:
     image: cine/movie-sessions
     environment:
@@ -41,6 +52,7 @@ services:
     depends_on:
       - database
       - service-discovery
+    restart: on-failure
   theaters:
     image: cine/movie-theaters
     environment:
@@ -50,6 +62,20 @@ services:
     depends_on:
       - database
       - service-discovery
+    restart: on-failure
+  unavailable:
+    image: cine/unavailability
+    environment:
+      DB_HOST: database
+      RABBIT_HOST: rabbit
+      SERVICE_DISCOVERY_HOSTS: http://service-discovery:8761/eureka/
+    depends_on:
+      - database
+      - service-discovery
+    restart: on-failure
 
 volumes:
   database-volume:
+    name: cine
+    external: true
+

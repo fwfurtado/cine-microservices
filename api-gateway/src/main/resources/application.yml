@@ -15,3 +15,6 @@ zuul:
       stripPrefix: false
       path: /sessions/**
       serviceId: sessions
+    unavailability:
+      path: /unavailability/**
+      serviceId: unavailability
